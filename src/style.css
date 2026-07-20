@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #050816;
+  --bg-secondary: #0d1330;
+
+  --purple: #8b5cf6;
+  --cyan: #4fd1ff;
+  --green: #52ffa8;
+
+  --white: #f8fafc;
+  --text: #d9e3f0;
+  --muted: #9caec9;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  color: var(--white);
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(139, 92, 246, 0.35), transparent 35%),
+    radial-gradient(circle at 85% 15%, rgba(79, 209, 255, 0.30), transparent 30%),
+    radial-gradient(circle at 50% 85%, rgba(82, 255, 168, 0.18), transparent 30%),
+    linear-gradient(160deg, #050816, #0d1330, #050816);
+
+  background-attachment: fixed;
+}
+
+.container {
+  width: min(1000px, 92%);
+  margin: auto;
+  padding: 5rem 0;
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  color: var(--cyan);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-wrap: balance;
+}
+
+img,
+video,
+iframe {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+  margin: 2rem 0;
+  transition: 0.35s ease;
+
+  box-shadow:
+    0 0 35px rgba(79, 209, 255, 0.2),
+    0 18px 60px rgba(0, 0, 0, 0.45);
+}
+
+iframe {
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+img:hover,
+video:hover,
+iframe:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 0 45px rgba(79, 209, 255, 0.3),
+    0 30px 70px rgba(0, 0, 0, 0.6);
+}
+
+p {
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.loading p {
+  color: var(--cyan);
+  font-size: 1.2rem;
+}
+
+.planet {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 30% 30%, white, #4fd1ff 35%, #7c3aed);
+
+  box-shadow: 0 0 40px rgba(79, 209, 255, 0.5);
+
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.error {
+  width: min(700px, 90%);
+  margin: 8rem auto;
+  text-align: center;
+}
+
+.error h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.error p {
+  color: #ff9c9c;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08101d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    var(--purple),
+    var(--cyan)
+  );
+
+  border-radius: 999px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 94%;
+    padding: 3rem 0;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  p {
+    text-align: left;
+    font-size: 1rem;
+  }
+
+  img,
+  video,
+  iframe {
+    border-radius: 18px;
+  }
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 3rem;
+  flex-wrap: wrap;
+}
+
+.search input {
+  padding: 0.9rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.search input:focus {
+  outline: 2px solid var(--cyan);
+}
+
+.search button {
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  color: white;
+  font-weight: 600;
+  font-family: inherit;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.search button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.search input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(1);
+}
+
+.error button {
+  margin-top: 2rem;
+  padding: 0.9rem 1.8rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  transition: transform 0.2s ease;
+}
+
+.error button:hover {
+  transform: translateY(-2px);
+}
